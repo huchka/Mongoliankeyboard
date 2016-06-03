@@ -73,7 +73,10 @@ function roman2cyrillic() {
 		l_reg = new RegExp(l, "g");
 		text = text.replace(l_reg, letter[l]);
 	}
-	console.log(text);
+	var obj = document.getElementById("monkeytextarea");
+	obj.value = text;
+	obj.focus();
+	obj.scrollTop = obj.scrollHeight;
 }
 
 window.onload = function() {
