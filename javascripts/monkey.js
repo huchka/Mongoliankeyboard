@@ -69,6 +69,26 @@ function roman2cyrillic(org_characters) {
 	return str;
 }
 
+function setCaretPosition(elemId, caretPos) {
+    var elem = document.getElementById(elemId);
+
+    if(elem != null) {
+        if(elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.move('character', caretPos);
+            range.select();
+        }
+        else {
+            if(elem.selectionStart) {
+                elem.focus();
+                elem.setSelectionRange(caretPos, caretPos);
+            }
+            else
+                elem.focus();
+        }
+    }
+}
+
 function convertText() {
 	if (converting) {
 		monkey_textarea = document.getElementById("mon_key_textarea");
@@ -81,6 +101,7 @@ function convertText() {
 
 		text = text.substring(0, cursor_point-2) + converted_characters + text.substring(cursor_point, text.length);
 		monkey_textarea.value = text;
+		setCaretPosition("mon_key_textarea", cursor_point);
 	}
 
 }
