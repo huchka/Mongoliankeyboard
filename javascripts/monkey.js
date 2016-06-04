@@ -80,7 +80,6 @@ function convertText() {
 		converted_characters = roman2cyrillic(last_two_character);
 
 		text = text.substring(0, cursor_point-2) + converted_characters + text.substring(cursor_point, text.length);
-
 		monkey_textarea.value = text;
 	}
 
