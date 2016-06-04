@@ -1,84 +1,92 @@
-var text;
-
 var letter = [];
+var level_two_enders = ["e", "h", "i", "u", "o", "=", "'"];
+var converting;
 
-function set_convert_data () {
+function setConvertData () {
 	letter["a"] = "а";
 	letter["b"] = "б";
 	letter["v"] = "в";
 	letter["g"] = "г";
 	letter["d"] = "д";
-	letter["ye"] = "е";
 		letter["ыe"] = "е";
-	letter["yo"] = "ё";
 		letter["ыo"] = "ё";
 	letter["j"] = "ж";
 	letter["z"] = "з";
 	letter["i"] = "и";
-	letter["i="] = "й";
 		letter["и="] = "й";
 	letter["k"] = "к";
 	letter["l"] = "л";
 	letter["m"] = "м";
 	letter["n"] = "н";
 	letter["o"] = "о";
-	letter["o="] = "ө";
 		letter["о="] = "ө";
 	letter["p"] = "п";
 	letter["r"] = "р";
 	letter["s"] = "с";
 	letter["t"] = "т";
 	letter["u"] = "у";
-	letter["u="] = "ү";
 		letter["у="] = "ү";
 	letter["f"] = "ф";
 	letter["h"] = "х";
 	letter["c"] = "ц";
-	letter["ch"] = "ч";
 		letter["цh"] = "ч";
-		letter["цх"] = "ч";
-	letter["sh"] = "ш";
 		letter["сh"] = "ш";
-		letter["сх"] = "ш";
-	letter["sh="] = "щ";
-		letter["сh="] = "щ";
-		letter["сх="] = "щ";
 		letter["ш="] = "щ";
-	letter["i''"] = "ъ";
-		letter["и''"] = "ъ";
 		letter["ь'"] = "ъ";
-	letter["i'"] = "ь";
 		letter["и'"] = "ь";
 	letter["y"] = "ы";
 	letter["e"] = "э";
-	letter["yu"] = "ю";
 		letter["ыu"] = "ю";
-		letter["ыу"] = "ю";
-	letter["ya"] = "я";
 		letter["ыa"] = "я";
-		letter["ыа"] = "я";
 
-	letter["аи"] = "ай";
-	letter["ии"] = "ий";
-	letter["ои"] = "ой";
-	letter["уи"] = "уй";
-	letter["үи"] = "үй";
-	letter["эи"] = "эй";
+	letter["аi"] = "ай";
+	letter["иi"] = "ий";
+	letter["оi"] = "ой";
+	letter["уi"] = "уй";
+	letter["үi"] = "үй";
+	letter["эi"] = "эй";
 }
 
-function roman2cyrillic() {
-	text = document.getElementById("monkeytextarea").value;
+function convertingState() {
+	converting = document.getElementById("converting_switch").checked;
+	document.getElementById("mon_key_textarea").focus();
+}
 
-	for (var l in letter) {
-		l_reg = new RegExp(l, "g");
-		text = text.replace(l_reg, letter[l]);
+function roman2cyrillic(org_characters) {
+	if (typeof letter[org_characters] == 'undefined') {
+		if (org_characters.length == 2) {
+			if (typeof letter[org_characters[1]] == 'undefined') {
+				str = org_characters;
+			} else {
+				str = org_characters[0] + letter[org_characters[1]];
+			}
+		} else {
+			str = org_characters;
+		}
+	} else {
+		str = letter[org_characters];
 	}
-	var obj = document.getElementById("monkeytextarea");
-	obj.value = text;
-	obj.focus();
-	obj.scrollTop = obj.scrollHeight;
+	return str;
+}
+
+function convertText() {
+	if (converting) {
+		monkey_textarea = document.getElementById("mon_key_textarea");
+		text = monkey_textarea.value;
+
+		cursor_point = monkey_textarea.selectionStart;
+
+		last_two_character = text.substring(cursor_point-2, cursor_point);
+		converted_characters = roman2cyrillic(last_two_character);
+
+		text = text.substring(0, cursor_point-2) + converted_characters + text.substring(cursor_point, text.length);
+
+		monkey_textarea.value = text;
+	}
+
 }
 
 window.onload = function() {
-	set_convert_data();
+	setConvertData();
+	convertingState();
 }
