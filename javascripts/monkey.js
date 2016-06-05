@@ -94,15 +94,20 @@ function convertText(event) {
 	// this part is for checking right key is pressed for entering character
 	// get pressed key code
 	pressed_key_code = event.which || event.keyCode;
+
 	// check key code is right character
 	character_inserted = false;
-	if ((pressed_key_code>=65 && pressed_key_code<=90)		// a--z
-		|| pressed_key_code == 187							// =
-		|| pressed_key_code == 222)							// '
+	if ((pressed_key_code>="A".charCodeAt() 
+		 && pressed_key_code<="Z".charCodeAt())		// A--Z
+		||(pressed_key_code>="a".charCodeAt() 
+		   && pressed_key_code<="z".charCodeAt())	// a--z
+		|| pressed_key_code == "=".charCodeAt()		// =
+		|| pressed_key_code == "'".charCodeAt())	// '
 		character_inserted = true;
 
 	// converting characters starts from here.
 	// if converting switch on and right key pressed for inserting character
+	setTimeout( function() {
 	if (converting && character_inserted) {
 		monkey_textarea = document.getElementById("mon_key_textarea");
 
@@ -128,7 +133,7 @@ function convertText(event) {
 		// set cursor on right position
 		diff = last_two_character.length - converted_characters.length;
 		setCaretPosition("mon_key_textarea", cursor_point-diff);
-	}
+	}}, 0);
 
 }
 
@@ -136,4 +141,5 @@ function convertText(event) {
 window.onload = function() {
 	setConvertData();
 	convertingState();
+	document.getElementById("mon_key_textarea").value = "";
 }
