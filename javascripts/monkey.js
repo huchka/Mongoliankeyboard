@@ -19,6 +19,28 @@ function setConvertData () {
 	letter["ыu"] = "ю"; letter["ыa"] = "я";
 	letter["аi"] = "ай"; letter["иi"] = "ий"; letter["оi"] = "ой";
 	letter["уi"] = "уй"; letter["үi"] = "үй"; letter["эi"] = "эй";
+	letter["өi"] = "өй";
+
+	// uppercase database
+	letter["A"] = "А"; letter["B"] = "Б"; letter["V"] = "В";
+	letter["G"] = "Г"; letter["D"] = "Д"; letter["E"] = "Е";
+	letter["ЫO"] = "Ё"; letter["J"] = "Ж"; letter["Z"] = "З";
+	letter["I"] = "И"; letter["И="] = "Й"; letter["K"] = "К";
+	letter["L"] = "Л"; letter["M"] = "М"; letter["N"] = "Н";
+	letter["O"] = "О"; letter["О="] = "Ө"; letter["P"] = "П";
+	letter["R"] = "Р"; letter["S"] = "С"; letter["T"] = "Т";
+	letter["U"] = "У"; letter["У="] = "Ү"; letter["F"] = "Ф";
+	letter["H"] = "Х"; letter["C"] = "Ц"; letter["ЦH"] = "Ч";
+	letter["СH"] = "Ш"; letter["Ш="] = "Щ"; letter["Ь'"] = "Ъ";
+	letter["Y"] = "Ы"; letter["И'"] = "Ь"; letter["E"] = "Э";
+	letter["ЫU"] = "Ю"; letter["ЫA"] = "Я";
+	letter["АI"] = "АЙ"; letter["ИI"] = "ИЙ"; letter["ОI"] = "ОЙ";
+	letter["УI"] = "УЙ"; letter["ҮI"] = "ҮЙ"; letter["ЭI"] = "ЭЙ";
+	letter["ӨI"] = "ӨЙ";
+
+	letter["Аi"] = "Ай"; letter["Иi"] = "Ий"; letter["Оi"] = "Ой";
+	letter["Уi"] = "Уй"; letter["Үi"] = "Үй"; letter["Эi"] = "Эй";
+	letter["Өi"] = "Өй";
 }
 
 // function for converting toggle swtich state
@@ -110,6 +132,7 @@ function convertText(event) {
 
 }
 
+// initialize
 window.onload = function() {
 	setConvertData();
 	convertingState();
