@@ -1,6 +1,6 @@
+
+// converting database
 var letter = [];
-var level_two_enders = ["e", "h", "i", "u", "o", "=", "'"];
-var converting;
 
 // converting database
 function setConvertData () {
@@ -41,12 +41,6 @@ function setConvertData () {
 	letter["Аi"] = "Ай"; letter["Иi"] = "Ий"; letter["Оi"] = "Ой";
 	letter["Уi"] = "Уй"; letter["Үi"] = "Үй"; letter["Эi"] = "Эй";
 	letter["Өi"] = "Өй";
-}
-
-// function for converting toggle swtich state
-function convertingState() {
-	converting = document.getElementById("converting_switch").checked;
-	document.getElementById("mon_key_textarea").focus();
 }
 
 // converting roman to cyrillic function
@@ -108,7 +102,8 @@ function convertText(event) {
 	// converting characters starts from here.
 	// if converting switch on and right key pressed for inserting character
 	setTimeout( function() {
-	if (converting && character_inserted) {
+	if (document.getElementById("converting_switch").checked 
+		&& character_inserted) {
 		monkey_textarea = document.getElementById("mon_key_textarea");
 
 		// get all text from textarea field
@@ -137,9 +132,16 @@ function convertText(event) {
 
 }
 
+// when state of converting switch changes
+// sets focus to textarea
+function onChangeState() {
+	document.getElementById("mon_key_textarea").focus();
+}
+
 // initialize
 window.onload = function() {
 	setConvertData();
-	convertingState();
+	setStateShortcutKeysToFalse();
 	document.getElementById("mon_key_textarea").value = "";
+	document.getElementById("mon_key_textarea").focus();
 }

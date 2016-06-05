@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/toggle-switch.css">
 
     <script type="text/javascript" src="javascripts/monkey.js"></script>
+    <script type="text/javascript" src="javascripts/toggle_switch_state.js"></script>
 
     <title>Mongolian keyboard</title>
   </head>
@@ -36,10 +37,10 @@
       <section id="main_content" class="inner">
 	       <h3>Write on below text area as if you are writing in Mongolian using Roman alphabets.</h3>
          <label class="switch">
-            <input id="converting_switch" type="checkbox" onchange="convertingState()" checked>
+            <input id="converting_switch" type="checkbox" onchange="onChangeState()" checked>
             <div class="slider round"></div>
          </label>
-         <textarea id="mon_key_textarea" onkeypress="convertText(event)" rows="20" cols="100"></textarea>
+         <textarea id="mon_key_textarea" onkeydown="changeConvertingSwitchState(event)" onkeypress="convertText(event)" rows="20" cols="100"></textarea>
       </section>
     </div>
 
