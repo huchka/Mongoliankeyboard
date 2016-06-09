@@ -39,7 +39,7 @@
             <input id="converting_switch" type="checkbox" onchange="onChangeState()" checked>
             <div class="slider round"></div>
          </label>
-         <textarea id="mon_key_textarea" onkeydown="changeConvertingSwitchState(event)" onkeypress="convertText(event)" rows="20" cols="100"></textarea>
+         <textarea id="mon_key_textarea" onkeydown="changeConvertingSwitchState(event)" oninput="convertText(event)" rows="20" cols="100"></textarea>
         <section>
           <h3>Guideline</h3>
           For switching on and off to convert from keyboard press: ctrl + e + i
