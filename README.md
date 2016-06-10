@@ -1,10 +1,10 @@
-Mongolian Keyboard.
+# Mongolian Keyboard.
 
 Link access is: http://huchka.github.io/Mongoliankeyboard
 
-### Guideline
+#### Guideline
 
-#### Write on below text area as if you are writing in Mongolian using Roman alphabets.
+##### Write on below text area as if you are writing in Mongolian using Roman alphabets.
 
 For switching on and off real time converting from keyboard press: ctrl + e + i
 
