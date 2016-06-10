@@ -10,9 +10,9 @@ function setConvertData () {
 	letter["ыo"] = "ё"; letter["j"] = "ж"; letter["z"] = "з";
 	letter["i"] = "и"; letter["и="] = "й"; letter["k"] = "к";
 	letter["l"] = "л"; letter["m"] = "м"; letter["n"] = "н";
-	letter["o"] = "о"; letter["о="] = "ө"; letter["p"] = "п";
+	letter["o"] = "о"; letter["о="] = "ө"; letter["о'"] = "ө"; letter["p"] = "п";
 	letter["r"] = "р"; letter["s"] = "с"; letter["t"] = "т";
-	letter["u"] = "у"; letter["у="] = "ү"; letter["f"] = "ф";
+	letter["u"] = "у"; letter["у="] = "ү"; letter["у'"] = "ү"; letter["f"] = "ф";
 	letter["h"] = "х"; letter["c"] = "ц"; letter["цh"] = "ч";
 	letter["сh"] = "ш"; letter["ш="] = "щ"; letter["ь'"] = "ъ";
 	letter["и'"] = "ь"; letter["y"] = "ы"; letter["e"] = "э";
