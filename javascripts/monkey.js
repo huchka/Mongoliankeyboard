@@ -2,6 +2,23 @@
 // converting database
 var letter = [];
 
+var converting_switch_id = "";
+var textarea_id = "";
+
+// initialize converting
+function initialize_converting(_converting_switch_id, _textarea_id) {
+	// set database
+	setConvertData();
+
+	converting_switch_id = _converting_switch_id;
+	textarea_id = _textarea_id;
+
+	textarea_element = document.getElementById(textarea_id);
+	textarea_element.oninput = function (event) {
+		convertText(event);
+	};
+}
+
 // converting database
 function setConvertData () {
 	// lowercase database
@@ -87,9 +104,9 @@ function setCaretPosition(elemId, caretPos) {
 function convertText(event) {
 	// converting characters starts from here.
 	// if converting switch on
-	if (document.getElementById("converting_switch").checked) {
+	if (document.getElementById(converting_switch_id).checked) {
 	    //&& character_inserted) {
-		monkey_textarea = document.getElementById("mon_key_textarea");
+		monkey_textarea = document.getElementById(textarea_id);
 
 		// get all text from textarea field
 		text = monkey_textarea.value;
@@ -111,16 +128,6 @@ function convertText(event) {
 
 		// set cursor on right position
 		diff = last_two_character.length - converted_characters.length;
-		setCaretPosition("mon_key_textarea", cursor_point-diff);
+		setCaretPosition(textarea_id, cursor_point-diff);
 	}
-
-}
-
-// initialize
-window.onload = function() {
-	setConvertData();
-	initialize_switch_changer("converting_switch", "mon_key_textarea");
-	setFocusOnChange("mon_key_textarea");
-	document.getElementById("mon_key_textarea").value = "";
-	document.getElementById("mon_key_textarea").focus();
 }
