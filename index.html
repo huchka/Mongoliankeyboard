@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/toggle-switch.css">
 
+    <script type="text/javascript" src="javascripts/main.js"></script>
     <script type="text/javascript" src="javascripts/monkey.js"></script>
     <script type="text/javascript" src="javascripts/toggle_switch_state.js"></script>
 
@@ -36,10 +37,11 @@
       <section id="main_content" class="inner">
 	       <h3>Write on below text area as if you are writing in Mongolian using Roman alphabets.</h3>
          <label class="switch">
-            <input id="converting_switch" type="checkbox" onchange="onChangeState()" checked>
+            <input id="converting_switch" type="checkbox" checked>
             <div class="slider round"></div>
          </label>
-         <textarea id="mon_key_textarea" onkeyup="setStateShortcutKeysToFalse()" onkeydown="changeConvertingSwitchState(event)" oninput="convertText(event)" rows="20" cols="100"></textarea>
+         To change switch state from keyboard. Press ctrl+w+i shortcut keys.
+         <textarea id="mon_key_textarea" rows="20" cols="100"></textarea>
         <section>
           <h3>Guideline</h3>
           For switching on and off to convert from keyboard press: ctrl + w + i

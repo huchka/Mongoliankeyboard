@@ -2,6 +2,26 @@
 // converting database
 var letter = [];
 
+var textarea_id = "";
+
+var converting = true;
+
+// initialize converting
+// set database and set oninput event on
+// inputing text field element
+function initialize_converting(_textarea_id) {
+	// set database
+	setConvertData();
+
+	converting = true;
+	textarea_id = _textarea_id;
+
+	textarea_element = document.getElementById(textarea_id);
+	textarea_element.oninput = function (event) {
+		convertText(event);
+	};
+}
+
 // converting database
 function setConvertData () {
 	// lowercase database
@@ -85,11 +105,8 @@ function setCaretPosition(elemId, caretPos) {
 }
 
 function convertText(event) {
-	// converting characters starts from here.
-	// if converting switch on
-	if (document.getElementById("converting_switch").checked) {
-	    //&& character_inserted) {
-		monkey_textarea = document.getElementById("mon_key_textarea");
+	if (converting) {
+		monkey_textarea = document.getElementById(textarea_id);
 
 		// get all text from textarea field
 		text = monkey_textarea.value;
@@ -106,26 +123,12 @@ function convertText(event) {
 		text = text.substring(0, cursor_point-2) 
 				+ converted_characters
 				+ text.substring(cursor_point, text.length);
+
 		// put all text into textarea field
 		monkey_textarea.value = text;
 
 		// set cursor on right position
 		diff = last_two_character.length - converted_characters.length;
-		setCaretPosition("mon_key_textarea", cursor_point-diff);
+		setCaretPosition(textarea_id, cursor_point-diff);
 	}
-
-}
-
-// when state of converting switch changes
-// sets focus to textarea
-function onChangeState() {
-	document.getElementById("mon_key_textarea").focus();
-}
-
-// initialize
-window.onload = function() {
-	setConvertData();
-	setStateShortcutKeysToFalse();
-	document.getElementById("mon_key_textarea").value = "";
-	document.getElementById("mon_key_textarea").focus();
 }
