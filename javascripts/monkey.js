@@ -116,16 +116,11 @@ function convertText(event) {
 
 }
 
-// when state of converting switch changes
-// sets focus to textarea
-function onChangeState() {
-	document.getElementById("mon_key_textarea").focus();
-}
-
 // initialize
 window.onload = function() {
 	setConvertData();
-	setStateShortcutKeysToFalse();
+	initialize_switch_changer("converting_switch", "mon_key_textarea");
+	setFocusOnChange("mon_key_textarea");
 	document.getElementById("mon_key_textarea").value = "";
 	document.getElementById("mon_key_textarea").focus();
 }
