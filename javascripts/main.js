@@ -15,6 +15,8 @@ window.onload = function() {
 		document.getElementById(mon_textarea_id).focus();
 	}
 	
+	// when page is loaded, or refreshed
+	// empty the text field and set focus on it.
 	document.getElementById(mon_textarea_id).value = "";
 	document.getElementById(mon_textarea_id).focus();
 }

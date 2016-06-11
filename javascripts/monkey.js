@@ -7,6 +7,8 @@ var textarea_id = "";
 var converting = true;
 
 // initialize converting
+// set database and set oninput event on
+// inputing text field element
 function initialize_converting(_textarea_id) {
 	// set database
 	setConvertData();

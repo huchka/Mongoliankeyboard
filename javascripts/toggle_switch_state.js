@@ -13,6 +13,8 @@ function initialize_switch_changer(_switch_id, _text_input_id) {
 	text_input_id = _text_input_id;
 
 	resetKeyState();
+
+	// set onkeyup and down event
 	setOnKeyUpDownOnInput();
 }
 
@@ -20,9 +22,13 @@ function initialize_switch_changer(_switch_id, _text_input_id) {
 // text element writing on
 function setOnKeyUpDownOnInput() {
 	text_input_element = document.getElementById(text_input_id);
+
+	// if some key up, reset the pressed key states
 	text_input_element.onkeyup = function () {
 		resetKeyState();
 	};
+
+	// when key down, test for changin switch state
 	text_input_element.onkeydown = function (event) {
 		changeSwitchState(event);
 	};
@@ -63,17 +69,20 @@ function changeSwitchState(event) {
 	if (typeof pressed_key_state[pressed_key_code] != 'undefined') {
 		// set this key pressed for changing state by shortcut keys
 		pressed_key_state[pressed_key_code] = true;
+
 		// checks if it is ready to change
 		// in other words, are the all keys of shortcut keys pressed
 		if (isReadyToChange()) {
 			switch_element = document.getElementById(switch_id);
+
 			// change the state of switch
 			switch_element.checked = !(switch_element.checked);
+
 			// sets back to false all keys pressed state
 			resetKeyState();
+
+			// fire switch state is changed event
 			switch_element.onchange();
 		}
-	} else {
-		resetKeyState();
 	}
 }
