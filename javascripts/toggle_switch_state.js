@@ -30,10 +30,10 @@ function setOnKeyUpDownOnInput() {
 
 // when state of converting switch changes
 // sets focus to text inputing element
-function setFocusOnChange(element) {
+function setFocusOnChange(element_id) {
 	switch_element = document.getElementById(switch_id);
 	switch_element.onchange = function () {
-		document.getElementById(element).focus();
+		document.getElementById(element_id).focus();
 	};
 }
 
@@ -71,6 +71,7 @@ function changeSwitchState(event) {
 			switch_element.checked = !(switch_element.checked);
 			// sets back to false all keys pressed state
 			resetKeyState();
+			switch_element.onchange();
 		}
 	} else {
 		resetKeyState();
