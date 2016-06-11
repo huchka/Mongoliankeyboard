@@ -1,5 +1,5 @@
 // for keyboard shortcut
-// ctrl + e + i
+// ctrl + w + i
 var keys = [17, 87, 73];
 // saving pressed keys state
 var convert_state_shortcut_keys = {};
