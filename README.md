@@ -6,7 +6,7 @@ Link access is: http://huchka.github.io/Mongoliankeyboard
 
 ##### Write text in Mongolian Cyrillic as if you are writing in Mongolian using Roman alphabets.
 
-For switching on and off real time converting from keyboard press: ctrl + w + i
+For switching on and off real time converting from keyboard press: ctrl + q + i
 
 | Letter | Key | Letter | Key | Letter | Key | Letter | Key | Letter | Key | Letter | Key |
 |--------|-----|--------|-----|--------|-----|--------|-----|--------|-----|--------|-----|
