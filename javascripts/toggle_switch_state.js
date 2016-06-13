@@ -1,6 +1,6 @@
 // for keyboard shortcut
-// ctrl + w + i
-var keys = [17, 87, 73];
+// ctrl + q + i
+var keys = [17, 81, 73];
 // saving pressed keys state
 var pressed_key_state = {};
 
@@ -65,6 +65,7 @@ function resetKeyState() {
 function changeSwitchState(event) {
 	// get pressed key code
 	pressed_key_code = event.which || event.keyCode;
+
 	// check pressed key is in shortcut keys
 	if (typeof pressed_key_state[pressed_key_code] != 'undefined') {
 		// set this key pressed for changing state by shortcut keys
